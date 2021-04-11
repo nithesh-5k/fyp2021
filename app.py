@@ -9,8 +9,10 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def home():
-    res = request.json
-    data=pd.DataFrame(res['distances'][0])
+    data = request.json
+    df_distances=pd.DataFrame(data['distances'])
+    df_heartbeats=pd.DataFrame(data['heartbeats'])
 
-    return {'data': data}
+    return df_distances['time'].values[0]
     
+
