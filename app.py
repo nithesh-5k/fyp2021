@@ -1,8 +1,6 @@
 import flask
 from flask import request
-import pandas as pd
 from datetime import datetime as dt
-import json 
 
 app = flask.Flask(__name__)
 
