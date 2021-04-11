@@ -2,6 +2,7 @@ import flask
 from flask import request
 import pandas as pd
 from datetime import datetime as dt
+import json 
 
 app = flask.Flask(__name__)
 
@@ -10,6 +11,6 @@ app = flask.Flask(__name__)
 def home():
     res = request.json
 
-    print(res)
-    return dict('key': res['distances'])
+    
+    return json.dumps(dict('key': res['distances']), indent = 4) 
     
