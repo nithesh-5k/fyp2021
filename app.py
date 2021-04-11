@@ -15,7 +15,7 @@ def home():
     g={}
     g['0']=df_distances
     g1['0']=df_heartbeats
-    return  json.dumps(g,g1)
+    return  json.dumps(g),json.dumps(g1)
     
 
 # if __name__ == "__main__":
