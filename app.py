@@ -14,8 +14,7 @@ def home():
     df_heartbeats=pd.DataFrame(data['heartbeats'])
     g={}
     g['0']=df_distances
-    g1['0']=df_heartbeats
-    return  json.dumps(g),json.dumps(g1)
+    return  json.dumps(g)
     
 
 # if __name__ == "__main__":
