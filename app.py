@@ -13,8 +13,8 @@ def home():
     df_distances=pd.DataFrame(data['distances'])
     df_heartbeats=pd.DataFrame(data['heartbeats'])
 
-    return str(df_distances['time'].values[0])
+    return df_distances['time'].values[0]
     
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
