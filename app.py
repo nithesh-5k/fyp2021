@@ -11,5 +11,5 @@ def home():
     res = request.json
 
 
-    return json.dumps(dict('key': res['distances'])) 
+    return json.dumps(res['distances'])) 
     
