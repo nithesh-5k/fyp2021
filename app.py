@@ -6,7 +6,10 @@ from datetime import datetime as dt
 app = flask.Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def home():
-    return 'string'
+    res = request.json
+
+    print(res)
+    return res
     
