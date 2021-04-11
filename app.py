@@ -69,8 +69,8 @@ def home():
     img_data=fig2data(fig)
     results['shape-2']=img_data.shape
     # results['image-2']=json.dumps(img_data, cls=NumpyEncoder)
-
-    return results
+    
+    return json.dumps(results)
 
 if __name__ == "__main__":
     app.run(debug=True)
