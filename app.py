@@ -55,11 +55,11 @@ def home():
     df_heartbeats['zones']=df_heartbeats.heartbeat.apply(zone)
     results['zones']=json.dumps(list(df_heartbeats['zones']))
 
-    #plotting grahp-1
-    # fig = plt.figure()
-    # df_heartbeats.zones.plot(kind='bar')
-    # img_data=fig2data(fig)
-    # results['shape-1']=img_data.shape
+    plotting grahp-1
+    fig = plt.figure()
+    df_heartbeats.zones.plot(kind='bar')
+    img_data=fig2data(fig)
+    results['shape-1']=img_data.shape
     # results['image-1']=json.dumps(img_data, cls=NumpyEncoder)
 
     #plotting grahp-1
@@ -68,8 +68,9 @@ def home():
     sns.heatmap(np.array(x).reshape(len(x),1), cmap="YlGnBu")
     img_data=fig2data(fig)
     results['shape-2']=img_data.shape
-    results['image-2']=json.dumps(img_data, cls=NumpyEncoder)
-    return json.dumps(results)
+    # results['image-2']=json.dumps(img_data, cls=NumpyEncoder)
+
+    return results
 
 if __name__ == "__main__":
     app.run(debug=True)
