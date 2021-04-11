@@ -11,6 +11,6 @@ app = flask.Flask(__name__)
 def home():
     res = request.json
 
-    
-    return json.dumps(dict('key': res['distances']), indent = 4) 
+
+    return json.dumps(dict('key': res['distances'])) 
     
