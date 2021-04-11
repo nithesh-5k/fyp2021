@@ -13,6 +13,6 @@ def home():
     df_distances=pd.DataFrame(data['distances'])
     df_heartbeats=pd.DataFrame(data['heartbeats'])
 
-    return df_distances['time'].values[0]
+    return str(df_distances['time'].values[0])
     
 
