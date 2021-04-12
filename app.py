@@ -73,7 +73,8 @@ def home():
     # results['heatmap']= encoded.decode("utf-8")
     
     
-    return json.dumps(results)
+    # return json.dumps(results)
+    return "hurray"
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
