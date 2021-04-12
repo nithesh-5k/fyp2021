@@ -6,6 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import base64
+import os
 
 def zone(hr):
     m=189
@@ -60,7 +62,7 @@ def home():
     plt.savefig('zone_bar_chart.png')
     encoded = base64.b64encode(open("zone_bar_chart.png", "rb").read())
     os.remove("zone_bar_chart.png")
-    results['zone_bar_chart']=str(encoded)
+    results['zone_bar_chart']=encoded.decode("utf-8")
 
     #plotting heatmap
     x=df_heartbeats.zones
@@ -68,7 +70,7 @@ def home():
     plt.savefig('heatmap.png')
     encoded = base64.b64encode(open("heatmap.png", "rb").read())
     os.remove("heatmap.png")
-    results['heatmap']=str(encoded)
+    results['heatmap']= encoded.decode("utf-8")
     
     
     return json.dumps(results)
