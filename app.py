@@ -62,7 +62,7 @@ def home():
     plt.savefig('zone_bar_chart.png')
     encoded = base64.b64encode(open("zone_bar_chart.png", "rb").read())
     os.remove("zone_bar_chart.png")
-    results['zone_bar_chart']=encoded.decode("utf-8")
+    # results['zone_bar_chart']=encoded.decode("utf-8")
 
     #plotting heatmap
     x=df_heartbeats.zones
@@ -70,7 +70,7 @@ def home():
     plt.savefig('heatmap.png')
     encoded = base64.b64encode(open("heatmap.png", "rb").read())
     os.remove("heatmap.png")
-    results['heatmap']= encoded.decode("utf-8")
+    # results['heatmap']= encoded.decode("utf-8")
     
     
     return json.dumps(results)
