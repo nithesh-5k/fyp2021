@@ -41,40 +41,39 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def home():
-    # #getting input
-    # data = request.json
-    # #converting to dataframes
-    # df_distances=pd.DataFrame(data['distances'])
-    # df_heartbeats=pd.DataFrame(data['heartbeats'])
-    # #calculation of vo2 max
-    # vo2max=15*(max(df_heartbeats['heartbeat'])/min(df_heartbeats['heartbeat']))
-    # results={
-    #     'vo2max':vo2max,
-    #     'max_heartrate':max(df_heartbeats['heartbeat'])
-    # }
+    #getting input
+    data = request.json
+    #converting to dataframes
+    df_distances=pd.DataFrame(data['distances'])
+    df_heartbeats=pd.DataFrame(data['heartbeats'])
+    #calculation of vo2 max
+    vo2max=15*(max(df_heartbeats['heartbeat'])/min(df_heartbeats['heartbeat']))
+    results={
+        'vo2max':vo2max,
+        'max_heartrate':max(df_heartbeats['heartbeat'])
+    }
 
-    # #zone calculation
-    # df_heartbeats['zones']=df_heartbeats.heartbeat.apply(zone)
-    # results['zones']=json.dumps(list(df_heartbeats['zones']))
+    #zone calculation
+    df_heartbeats['zones']=df_heartbeats.heartbeat.apply(zone)
+    results['zones']=json.dumps(list(df_heartbeats['zones']))
 
-    # # plotting zone bar graph
-    # df_heartbeats.zones.plot(kind='bar')
-    # plt.savefig('zone_bar_chart.png')
-    # encoded = base64.b64encode(open("zone_bar_chart.png", "rb").read())
-    # os.remove("zone_bar_chart.png")
-    # # results['zone_bar_chart']=encoded.decode("utf-8")
+    # plotting zone bar graph
+    df_heartbeats.zones.plot(kind='bar')
+    plt.savefig('zone_bar_chart.png')
+    encoded = base64.b64encode(open("zone_bar_chart.png", "rb").read())
+    os.remove("zone_bar_chart.png")
+    # results['zone_bar_chart']=encoded.decode("utf-8")
 
-    # #plotting heatmap
-    # x=df_heartbeats.zones
-    # sns.heatmap(np.array(x).reshape(len(x),1), cmap="YlGnBu")
-    # plt.savefig('heatmap.png')
-    # encoded = base64.b64encode(open("heatmap.png", "rb").read())
-    # os.remove("heatmap.png")
-    # # results['heatmap']= encoded.decode("utf-8")
+    #plotting heatmap
+    x=df_heartbeats.zones
+    sns.heatmap(np.array(x).reshape(len(x),1), cmap="YlGnBu")
+    plt.savefig('heatmap.png')
+    encoded = base64.b64encode(open("heatmap.png", "rb").read())
+    os.remove("heatmap.png")
+    # results['heatmap']= encoded.decode("utf-8")
     
     
-    # # return json.dumps(results)
-    return "hurray"
+    return json.dumps(results)
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
